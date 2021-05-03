@@ -60,20 +60,20 @@ bool BQ27426::setCapacity(uint16_t capacity)
 bool BQ27426::setDesignEnergy(uint16_t energy)
 {
 	// Write to STATE subclass (82) of BQ27426 extended memory.
-	// Offset 0x0C (12)
+	// Offset 8
 	// Design energy is a 2-byte piece of data - MSB first
 	// Unit: mWh
 	uint8_t enMSB = energy >> 8;
 	uint8_t enLSB = energy & 0x00FF;
 	uint8_t energyData[2] = {enMSB, enLSB};
-	return writeExtendedData(BQ27426_ID_STATE, 12, energyData, 2);
+	return writeExtendedData(BQ27426_ID_STATE, 8, energyData, 2);
 }
 
 // Configures the terminate voltage.
 bool BQ27426::setTerminateVoltage(uint16_t voltage)
 {
 	// Write to STATE subclass (82) of BQ27426 extended memory.
-	// Offset 0x0F (16)
+	// Offset 10
 	// Termiante voltage is a 2-byte piece of data - MSB first
 	// Unit: mV
 	// Min 2500, Max 3700
@@ -83,14 +83,14 @@ bool BQ27426::setTerminateVoltage(uint16_t voltage)
 	uint8_t tvMSB = voltage >> 8;
 	uint8_t tvLSB = voltage & 0x00FF;
 	uint8_t tvData[2] = {tvMSB, tvLSB};
-	return writeExtendedData(BQ27426_ID_STATE, 16, tvData, 2);
+	return writeExtendedData(BQ27426_ID_STATE, 10, tvData, 2);
 }
 
 // Configures taper rate of connected battery.
 bool BQ27426::setTaperRate(uint16_t rate)
 {
 	// Write to STATE subclass (82) of BQ27426 extended memory.
-	// Offset 0x1B (27)
+	// Offset 21
 	// Termiante voltage is a 2-byte piece of data - MSB first
 	// Unit: 0.1h
 	// Max 2000
@@ -98,7 +98,7 @@ bool BQ27426::setTaperRate(uint16_t rate)
 	uint8_t trMSB = rate >> 8;
 	uint8_t trLSB = rate & 0x00FF;
 	uint8_t trData[2] = {trMSB, trLSB};
-	return writeExtendedData(BQ27426_ID_STATE, 27, trData, 2);
+	return writeExtendedData(BQ27426_ID_STATE, 21, trData, 2);
 }
 
 /*****************************************************************************
