@@ -1,7 +1,8 @@
-BQ27426YZFR Arduino Driver
+BQ27426 Arduino Driver
 ========================================
 
-Updated version of the Sparkfun Fuel gauge driver for the newer BQ27426YZFR chip. Work in progress. not tested and no guarantees!
+Updated version of the Sparkfun Fuel gauge driver for the newer BQ27426 chip. Work in progress. not tested and no guarantees!
+[Datasheet for BQ27426](doc/datasheet.pdf)
 
 changes from original library:
 * Changed Device ID to 0x0426
