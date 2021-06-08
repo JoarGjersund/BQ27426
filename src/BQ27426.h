@@ -375,6 +375,14 @@ public:
 		@return true on success
 	*/
 	bool unseal(void);	
+	
+	/**
+	    Execute a subcommand() from the BQ27426-G1A's control()
+		
+		@param function is the subcommand of control() to be executed
+		@return true on success
+	*/	
+	bool executeControlWord(uint16_t function);	
 private:
 	uint8_t _deviceAddress;  // Stores the BQ27426-G1A's I2C address
 	bool _sealFlag; // Global to identify that IC was previously sealed
@@ -421,13 +429,7 @@ private:
 	*/	
 	uint16_t readControlWord(uint16_t function);
 	
-	/**
-	    Execute a subcommand() from the BQ27426-G1A's control()
-		
-		@param function is the subcommand of control() to be executed
-		@return true on success
-	*/	
-	bool executeControlWord(uint16_t function);
+
 	
 	////////////////////////////
 	// Extended Data Commands //
