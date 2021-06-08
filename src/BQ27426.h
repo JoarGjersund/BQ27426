@@ -355,13 +355,6 @@ public:
 		@return 16-bit representation of CONTROL_STATUS subcommand
 	*/
 	uint16_t status(void);
-	
-private:
-	uint8_t _deviceAddress;  // Stores the BQ27426-G1A's I2C address
-	bool _sealFlag; // Global to identify that IC was previously sealed
-	bool _userConfigControl; // Global to identify that user has control over 
-	                         // entering/exiting config
-	
 	/**
 	    Check if the BQ27426-G1A is sealed or not.
 		
@@ -381,7 +374,14 @@ private:
 		
 		@return true on success
 	*/
-	bool unseal(void);
+	bool unseal(void);	
+private:
+	uint8_t _deviceAddress;  // Stores the BQ27426-G1A's I2C address
+	bool _sealFlag; // Global to identify that IC was previously sealed
+	bool _userConfigControl; // Global to identify that user has control over 
+	                         // entering/exiting config
+	
+
 		
 	/**
 	    Read the 16-bit opConfig register from extended data
